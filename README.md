@@ -1,6 +1,4 @@
-# AVIX-DashSystem
-
-AVIX LMU Dash Switcher  v1.0.0
+AVIX LMU Dash Switcher  v1.1.0
 ==============================
 Plugin SimHub : dans Le Mans Ultimate, le dashboard de tes écrans change tout seul
 selon la voiture que tu pilotes (Ferrari 499P -> dash 499P, BMW M4 GT3 -> dash M4, etc.).
@@ -15,7 +13,24 @@ INSTALLATION (1 minute)
    - installe tes 31 dashboards dans SimHub (ceux que tu as déjà sont conservés),
    - relance SimHub.
 2. Au démarrage, SimHub demande s'il faut activer le nouveau plugin : réponds OUI.
-3. Dans le menu de gauche de SimHub : « AVIX LMU Dash ». C'est tout.
+3. Dans le menu de gauche de SimHub : « AVIX LMU Dash », puis bouton
+   « Mettre « AVIX LMU Auto » sur mes écrans + activer le tactile ». C'est tout.
+
+
+LE DASHBOARD UNIQUE « AVIX LMU Auto »
+------------------------------------
+Le plugin crée un seul dashboard, « AVIX LMU Auto », qui contient tous tes dashboards voitures.
+Tu le mets sur tous tes écrans (le bouton ci-dessus le fait pour toi) et il affiche tout seul le
+dash de la voiture que tu pilotes. Plus besoin de régler chaque écran.
+Hors LMU / sans voiture : écran d'attente « AVIX LMU ».
+
+TACTILE (écrans VoCore)
+- touche la moitié GAUCHE de l'écran  = page précédente
+- touche la moitié DROITE de l'écran  = page suivante
+Ça marche pour tous les dashs qui ont plusieurs pages (499P, BMW, Porsche GT3, McLaren...).
+Le bouton active le tactile des VoCore et le met en mode « simple ».
+Si tu changes les règles ou ajoutes un dash, « AVIX LMU Auto » est recréé automatiquement
+(ou bouton « Regénérer le dashboard unique »).
 
 Installation manuelle (si tu préfères) : copie Plugin\AvixLmuDashSwitcher.dll ET le dossier
 Plugin\AvixLmuDash dans le dossier de SimHub (C:\Program Files (x86)\SimHub), puis lance SimHub :
@@ -30,7 +45,8 @@ toute seule : il faudrait assigner chaque livrée à la main.
 
 Le plugin lit le vrai modèle de la voiture dans la télémétrie native de LMU (mVehicleModel) + la
 classe (Hypercar / LMP2 / LMP3 / GTE / GT3), choisit le dashboard avec ses règles, puis remplit
-la « Playlist par voiture » de chaque écran (onglet Appareils). SimHub fait le changement.
+le dashboard « AVIX LMU Auto » affiche le bon dash. (Option : décoche « Utiliser le dashboard
+unique » pour revenir à l'ancien mode, où le plugin remplit la « Playlist par voiture » de chaque écran.)
 Si le modèle n'est pas disponible, il se rabat sur des mots-clés d'équipe (AF Corse -> Ferrari,
 Akkodis -> Lexus, Manthey -> Porsche...).
 

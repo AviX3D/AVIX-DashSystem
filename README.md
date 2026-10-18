@@ -1,4 +1,4 @@
-AVIX LMU Dash Switcher  v1.1.0
+AVIX LMU Dash Switcher  v3.1.0
 ==============================
 Plugin SimHub : dans Le Mans Ultimate, le dashboard de tes écrans change tout seul
 selon la voiture que tu pilotes (Ferrari 499P -> dash 499P, BMW M4 GT3 -> dash M4, etc.).

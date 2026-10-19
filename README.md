@@ -70,23 +70,6 @@ Les dashboards ne sont pas inclus dans ce dépôt (dashboards d'autres auteurs).
 
 Action mappable sur un bouton : `AvixLmuDashPlugin.ReapplyDashboard`.
 
-## Compiler
-
-Code C# (.NET Framework 4.8) dans `src/`. Il faut le SDK .NET et SimHub installé (les DLL de SimHub servent de
-références et ne sont pas publiées ici) :
-
-```bat
-build.bat
-```
-
-ou `dotnet build src\Plugin -c Release -p:SimHubDir="C:\Program Files (x86)\SimHub"`.
-
-## Publier une version
-
-```bat
-git tag v1.4.0
-git push origin v1.4.0
-```
 
 Le workflow **Release** crée automatiquement le zip prêt à installer dans l'onglet Releases.
 

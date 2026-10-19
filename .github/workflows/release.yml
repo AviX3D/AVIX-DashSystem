@@ -1,0 +1,46 @@
+# Publie une Release GitHub (zip prêt à installer) à chaque tag vX.Y.Z.
+#   git tag v1.4.0 && git push origin v1.4.0
+# Le plugin est déjà compilé dans le dépôt (Plugin/ + AvixInstaller.exe) car la
+# compilation a besoin des DLL de SimHub, qui ne peuvent pas être publiées ici.
+name: Release
+
+on:
+  push:
+    tags: [ "v*" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Vérifier les fichiers
+        run: |
+          test -f AvixInstaller.exe
+          test -f Plugin/AvixLmuDashSwitcher.dll
+
+      - name: Créer le zip
+        run: |
+          NAME="AVIX-LMU-Dash-Switcher-${GITHUB_REF_NAME}"
+          mkdir -p "dist/$NAME"
+          cp -r AvixInstaller.exe Plugin README.md "dist/$NAME/"
+          cd dist && zip -r -9 "$NAME.zip" "$NAME"
+          echo "ZIP=dist/$NAME.zip" >> "$GITHUB_ENV"
+
+      - name: Publier la release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.ZIP }}
+          generate_release_notes: true
+
+      - name: Garder le zip (lancement manuel)
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: AVIX-LMU-Dash-Switcher
+          path: ${{ env.ZIP }}

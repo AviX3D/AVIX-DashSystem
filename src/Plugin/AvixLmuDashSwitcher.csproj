@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Compilation : dotnet build src/Plugin -c Release  (ou build.bat)
+       SimHubDir = dossier d'installation de SimHub (DLL de référence, non publiées ici). -->
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>AvixLmuDashSwitcher</AssemblyName>
+    <RootNamespace>AvixLmuDash</RootNamespace>
+    <LangVersion>7.3</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>..\..\build\</OutputPath>
+    <NoWarn>CS0219;CS0618</NoWarn>
+    <SimHubDir Condition="'$(SimHubDir)' == ''">C:\Program Files (x86)\SimHub</SimHubDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\Shared\*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="SimHub.Plugins"><HintPath>$(SimHubDir)\SimHub.Plugins.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="GameReaderCommon"><HintPath>$(SimHubDir)\GameReaderCommon.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="SimHub.Logging"><HintPath>$(SimHubDir)\SimHub.Logging.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="log4net"><HintPath>$(SimHubDir)\log4net.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Newtonsoft.Json"><HintPath>$(SimHubDir)\Newtonsoft.Json.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\res\avix_logo_600.png" LogicalName="avix_logo_600.png" />
+    <EmbeddedResource Include="..\res\avix_icon24.png" LogicalName="avix_icon24.png" />
+    <EmbeddedResource Include="..\res\fonts\*.ttf" LogicalName="font.%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>
